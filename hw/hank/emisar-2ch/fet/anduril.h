@@ -110,40 +110,40 @@
 #endif
 
 
-## My customizations for a tint ramp d4k
+// My customizations for a tint ramp d4k
 
-# Blend mode is the preferred mode
+// Blend mode is the preferred mode
 #undef DEFAULT_CHANNEL_MODE
 #define DEFAULT_CHANNEL_MODE CM_BLEND
 #undef DEFAULT_BLINK_CHANNEL
 #define DEFAULT_BLINK_CHANNEL CM_BLEND
 
-# I don't need the simple ui
+// I don't need the simple ui
 #undef USE_SIMPLE_UI
 
-# Always go to lockout after 5 minutes
+// Always go to lockout after 5 minutes
 #define DEFAULT_AUTOLOCK_TIME 5
 
-# Voltage high for on, we have auto lockout set so low isn't needed
+// Voltage high for on, we have auto lockout set so low isn't needed
 #undef RGB_LED_OFF_DEFAULT
 #define RGB_LED_OFF_DEFAULT 0x29
 
-# Green low for lockout
+// Green low for lockout
 #define RGB_LED_LOCKOUT_DEFAULT 0x13
 
-# Police mode isn't useful with a tint ramp setup
+// Police mode isn't useful with a tint ramp setup
 #undef USE_POLICE_COLOR_STROBE_MODE
 #undef POLICE_COLOR_STROBE_CH1
 #undef POLICE_COLOR_STROBE_CH1
 
-# I only want regular blend on a tint ramp
+// I only want regular blend on a tint ramp
 #undef CHANNEL_MODES_ENABLED
 #define CHANNEL_MODES_ENABLED 0b0000000000001000
 
-# I'm happy with just smooth tint ramp. Tint ramp looked a bit funny to me with the new firmware, so maybe this helps.
+// I'm happy with just smooth tint ramp. Tint ramp looked a bit funny to me with the new firmware, so maybe this helps.
 #undef USE_STEPPED_TINT_RAMPING
 
-# I want standby to go straight to the set rgb mode
+// I want standby to go straight to the set rgb mode
 #undef USE_POST_OFF_VOLTAGE
 #undef DEFAULT_POST_OFF_VOLTAGE_SECONDS 
 #undef POST_OFF_VOLTAGE_BRIGHTNESS
