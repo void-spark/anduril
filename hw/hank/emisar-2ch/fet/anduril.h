@@ -143,7 +143,5 @@
 // I'm happy with just smooth tint ramp. Tint ramp looked a bit funny to me with the new firmware, so maybe this helps.
 #undef USE_STEPPED_TINT_RAMPING
 
-// I want standby to go straight to the set rgb mode
-#undef USE_POST_OFF_VOLTAGE
-#undef DEFAULT_POST_OFF_VOLTAGE_SECONDS 
-#undef POST_OFF_VOLTAGE_BRIGHTNESS
+// I want standby to go straight to the set rgb mode. Using #undef USE_POST_OFF_VOLTAGE doesn't currenlty work.
+#define DEFAULT_POST_OFF_VOLTAGE_SECONDS 0
