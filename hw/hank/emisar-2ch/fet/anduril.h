@@ -145,3 +145,7 @@
 
 // I want standby to go straight to the set rgb mode. Using #undef USE_POST_OFF_VOLTAGE doesn't currenlty work.
 #define DEFAULT_POST_OFF_VOLTAGE_SECONDS 0
+
+// The value in the old firmware seemed ok, and didn't flash so much in low light level (lockout mode at 0x0a)
+#undef DEFAULT_JUMP_START_LEVEL
+#define DEFAULT_JUMP_START_LEVEL 21
