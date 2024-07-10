@@ -118,6 +118,8 @@
 #undef DEFAULT_BLINK_CHANNEL
 #define DEFAULT_BLINK_CHANNEL CM_BLEND
 
+#define DEFAULT_STROBE_CHANNELS CM_BLEND,CM_BLEND,CM_BLEND,CM_BLEND,CM_BLEND,CM_BLEND
+
 // I don't need the simple ui
 #undef USE_SIMPLE_UI
 
@@ -131,10 +133,11 @@
 // Green low for lockout
 #define RGB_LED_LOCKOUT_DEFAULT 0x13
 
-// Police mode isn't useful with a tint ramp setup
-#undef USE_POLICE_COLOR_STROBE_MODE
+// Use aux for police strobe
 #undef POLICE_COLOR_STROBE_CH1
-#undef POLICE_COLOR_STROBE_CH1
+#define POLICE_COLOR_STROBE_CH1 CM_AUXRED
+#undef POLICE_COLOR_STROBE_CH2
+#define POLICE_COLOR_STROBE_CH2 CM_AUXBLU
 
 // I only want regular blend on a tint ramp
 #undef CHANNEL_MODES_ENABLED
