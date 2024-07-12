@@ -134,10 +134,15 @@
 #define RGB_LED_LOCKOUT_DEFAULT 0x13
 
 // Use aux for police strobe
+#define POLICE_STROBE_USES_AUX
 #undef POLICE_COLOR_STROBE_CH1
 #define POLICE_COLOR_STROBE_CH1 CM_AUXRED
 #undef POLICE_COLOR_STROBE_CH2
 #define POLICE_COLOR_STROBE_CH2 CM_AUXBLU
+
+// Don't use police strobe in tactical, aux is a bit underwhelming
+#undef  TACTICAL_LEVELS
+#define TACTICAL_LEVELS 130,30,(RAMP_SIZE+2)
 
 // I only want regular blend on a tint ramp
 #undef CHANNEL_MODES_ENABLED

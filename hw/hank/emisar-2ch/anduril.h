@@ -99,3 +99,41 @@
 #undef BLINK_AT_RAMP_MIDDLE
 #endif
 
+
+// My customizations for a tint ramp d4k
+
+#define DEFAULT_STROBE_CHANNELS CM_BLEND,CM_BLEND,CM_BLEND,CM_BLEND,CM_BLEND,CM_BLEND
+
+// I don't need the simple ui
+#undef USE_SIMPLE_UI
+
+// Always go to lockout after 5 minutes
+#define DEFAULT_AUTOLOCK_TIME 5
+
+// Voltage high for on, we have auto lockout set so low isn't needed
+#undef RGB_LED_OFF_DEFAULT
+#define RGB_LED_OFF_DEFAULT 0x29
+
+// Green low for lockout
+#define RGB_LED_LOCKOUT_DEFAULT 0x13
+
+// Use aux for police strobe
+#define POLICE_STROBE_USES_AUX
+#undef POLICE_COLOR_STROBE_CH1
+#define POLICE_COLOR_STROBE_CH1 CM_AUXRED
+#undef POLICE_COLOR_STROBE_CH2
+#define POLICE_COLOR_STROBE_CH2 CM_AUXBLU
+
+// Don't use police strobe in tactical, aux is a bit underwhelming
+#undef  TACTICAL_LEVELS
+#define TACTICAL_LEVELS 130,30,(RAMP_SIZE+2)
+
+// I only want regular blend on a tint ramp
+#undef CHANNEL_MODES_ENABLED
+#define CHANNEL_MODES_ENABLED 0b0000000000001000
+
+// I'm happy with just smooth tint ramp. Tint ramp looked a bit funny to me with the new firmware, so maybe this helps.
+#undef USE_STEPPED_TINT_RAMPING
+
+// I want standby to go straight to the set rgb mode. Using #undef USE_POST_OFF_VOLTAGE doesn't currenlty work.
+#define DEFAULT_POST_OFF_VOLTAGE_SECONDS 0
