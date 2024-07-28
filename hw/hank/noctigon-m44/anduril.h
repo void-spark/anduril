@@ -130,3 +130,40 @@
 // for consistency with KR4 (not otherwise necessary though)
 #define USE_SOFT_FACTORY_RESET
 
+
+// My customizations for a throw/floody m44
+
+// For now let's have the strobes on both sets of LEDs, maybe I'll change my mind later.
+#undef DEFAULT_STROBE_CHANNELS
+#define DEFAULT_STROBE_CHANNELS CM_BOTH,CM_BOTH,CM_BOTH,CM_BOTH,CM_BOTH,CM_BOTH
+
+// I don't need the simple ui
+#undef USE_SIMPLE_UI
+
+// Always go to lockout after 5 minutes
+#define DEFAULT_AUTOLOCK_TIME 5
+
+// Voltage high for on, we have auto lockout set so low isn't needed
+#undef RGB_LED_OFF_DEFAULT
+#define RGB_LED_OFF_DEFAULT 0x29
+
+// Green low for lockout
+#define RGB_LED_LOCKOUT_DEFAULT 0x13
+
+// Use aux for police strobe
+#define POLICE_STROBE_USES_AUX
+#undef POLICE_COLOR_STROBE_CH1
+#define POLICE_COLOR_STROBE_CH1 CM_AUXRED
+#undef POLICE_COLOR_STROBE_CH2
+#define POLICE_COLOR_STROBE_CH2 CM_AUXBLU
+
+// Don't use police strobe in tactical, aux is a bit underwhelming
+#undef  TACTICAL_LEVELS
+#define TACTICAL_LEVELS 120,30,(RAMP_SIZE+2)
+
+// I only want both/ch1/ch2 on a throw/flood
+#undef CHANNEL_MODES_ENABLED
+#define CHANNEL_MODES_ENABLED 0b0000000000000111
+
+// I want standby to go straight to the set rgb mode. Using #undef USE_POST_OFF_VOLTAGE doesn't currenlty work.
+#define DEFAULT_POST_OFF_VOLTAGE_SECONDS 0

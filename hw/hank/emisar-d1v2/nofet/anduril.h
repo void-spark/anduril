@@ -19,3 +19,21 @@
 #undef SIMPLE_UI_CEIL
 #define SIMPLE_UI_CEIL RAMP_SMOOTH_CEIL
 
+
+// My customizations for my d1v2 with RGB button
+
+// I don't need the simple ui
+#undef USE_SIMPLE_UI
+
+// Always go to lockout after 5 minutes
+#define DEFAULT_AUTOLOCK_TIME 5
+
+// Use 'white' for off, shows off all the RGB leds.
+#undef RGB_LED_OFF_DEFAULT
+#define RGB_LED_OFF_DEFAULT 0x26 
+
+// Low blue for lockout
+#define RGB_LED_LOCKOUT_DEFAULT 0x14
+
+#define DEFAULT_MANUAL_MEMORY 78
+#define DEFAULT_MANUAL_MEMORY_TIMER 5
